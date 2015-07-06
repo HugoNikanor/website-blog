@@ -8,20 +8,30 @@
 <body>
 <div id="all">
 	<div id="top-bar">
-		<h1>top bar</h1>
+		<h1><u>HugoNikanors blog‽</u></h1>
+		<p>
+		En blog om datorer; spel, programering & annat. Samt möjligen livet.
+		</p>
 	</div>
 	<div id="nav-pane">
-		<a href="www.google.com">nav-pane</a>	
+		<!--Replace with proper php-->
+		<a href="./prev">Previous</a>
+		<a href="./list">List</a>
+		<a href="./next">Next</a>
 	</div>
 	<div id="content">
 		<p>
 		<?php
-			echo("Content");
+			readfile("entries/test1.md");
 		?>
 		</p>
 	</div>
 	<div id="footnote">
-		<p>footnote</p>
+		<a href="./about">About</a>
+		<a href="./contact">Contact</a>
+		<a href="./legal">Legal</a>
+		<a href="./other">Other</a>
+
 	</div>
 </div>
 </body>
