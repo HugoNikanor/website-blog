@@ -31,11 +31,25 @@
 			   $filename==='contact.md' ||
 			   $filename==='legal.md'   || 
 			   $filename==='qna.md') {
+				echo($filename);
+				echo $Pd->text('---');
 				echo $Pd->text(file_get_contents($filename));
 			} else {
-				$path = './entries/' . $filename;
-				echo $Pd->text(file_get_contents($path));
+				$path = 'entries/' . $filename;
+				echo($path);
+				echo $Pd->text('---');
+				try {
+					//echo $Pd->text(file_get_contents($path));
+					//echo $Pd->text(file_get_contents("entries/code.md");
+				} catch (Exception $e) {
+					echo 'Exception: ', $e->getMessage(), "\n";
+				}
 			}
+			echo $Pd->text('---');
+			$fname = "code.md";
+			echo($fname);
+			echo $Pd->text(file_get_contents($fname));
+			echo $Pd->text(file_get_contents($filename));
 		?>
 		</p>
 	</div>
