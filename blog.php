@@ -10,27 +10,43 @@
 	<div id="top-bar">
 		<h1><u>HugoNikanors blog‽</u></h1>
 		<p>
-		En blog om datorer; spel, programering & annat. Samt möjligen livet.
+		En blog om datorer; spel, programmering & annat. Samt möjligen livet.
 		</p>
 	</div>
 	<div id="nav-pane">
 		<!--Replace with proper php-->
+		<a href="./first">|<</a>
 		<a href="./prev">Previous</a>
 		<a href="./list">List</a>
 		<a href="./next">Next</a>
+		<a href="./latest">>|</a>
 	</div>
 	<div id="content">
 		<p>
 		<?php
-			readfile("entries/test1.md");
+			require('./Parsedown.php');
+			$Pd = new Parsedown();
+			$filename = $_GET['filename'];
+			if($filename==='about.md'  ||
+			   $filename==='contact.md' ||
+			   $filename==='legal.md'   || 
+			   $filename==='qna.md') {
+				echo $Pd->text(file_get_contents($filename));
+			} else {
+				$path = './entries/' . $filename;
+				echo $Pd->text(file_get_contents($path));
+			}
 		?>
 		</p>
 	</div>
+	<div id="comment">
+		
+	</div>
 	<div id="footnote">
-		<a href="./about">About</a>
-		<a href="./contact">Contact</a>
-		<a href="./legal">Legal</a>
-		<a href="./other">Other</a>
+		<a href="./blog.php?filename=about.md">About</a>
+		<a href="./blog.php?filename=contact.md">Contact</a>
+		<a href="./blog.php?filename=legal.md">Legal</a>
+		<a href="./blog.php?filename=qna.md">Q&A</a>
 
 	</div>
 </div>
