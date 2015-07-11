@@ -45,7 +45,7 @@
 	}
 	if(!(isset($currentPath))) {
 		echo("<br> hello");
-		$currentPath = sizeof($entries) - 1;
+		//$currentPath = sizeof($entries) - 1;
 	}
 
 	echo($currentPath);
@@ -62,14 +62,15 @@
 	}
 	if($id === 'prev') {
 		echo("<br><br><script type='text/javascript'>alert(" . $currentPath . ");</script><br><br>");
-		$currentPath--;
+		--$currentPath;
 		if($currentPath < 0) {
 			$currentPath = 0;
 		}
 		//$path = $entries[$currentPath];
 		//header("Location: ./blog.php?filename=" . substr($entries[$currentPath], 10) . "&entry=" . $currentPath);
 		echo($currentPath);
-		header("Location: ./blog.php?filename=" . substr($entries[$currentPath - 1], 10));
+		//header("Location: ./blog.php?filename=" . substr($entries[$currentPath], 10));
+		header("Location: ./blog.php?filename=" . substr($entries[$currentPath], 10));
 		die("dead");
 	}
 	if($id === 'list') {

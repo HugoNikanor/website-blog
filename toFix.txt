@@ -1,0 +1,2 @@
+nav-pane.php does things in the wrong order.
+it doesn't set the filename early enough.
