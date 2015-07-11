@@ -15,41 +15,35 @@
 	</div>
 	<div id="nav-pane">
 		<!--Replace with proper php-->
-		<a href="./first">|<</a>
-		<a href="./prev">Previous</a>
-		<a href="./list">List</a>
-		<a href="./next">Next</a>
-		<a href="./latest">>|</a>
+		<a href="./blog.php?id=first">|<</a>
+		<a href="./blog.php?id=prev">Previous</a>
+		<a href="./blog.php?id=list">List</a>
+		<a href="./blog.php?id=next">Next</a>
+		<a href="./blog.php?id=latest">>|</a>
 	</div>
 	<div id="content">
 		<p>
 		<?php
-			require('./Parsedown.php');
-			$Pd = new Parsedown();
+			error_reporting(E_ALL);
+			ini_set('display_errors', '1');
+			
+			require('Parsedown.php');
+			require('ParsedownExtra.php');
+		
+			require('nav-bar.php');
+
+			$Pd = new parsedownExtra();
+			//$pd = new parsedown();
 			$filename = $_GET['filename'];
 			if($filename==='about.md'  ||
 			   $filename==='contact.md' ||
 			   $filename==='legal.md'   || 
 			   $filename==='qna.md') {
-				echo($filename);
-				echo $Pd->text('---');
-				echo $Pd->text(file_get_contents($filename));
+				$path = 'footnote/' . $filename;
 			} else {
 				$path = 'entries/' . $filename;
-				echo($path);
-				echo $Pd->text('---');
-				try {
-					//echo $Pd->text(file_get_contents($path));
-					//echo $Pd->text(file_get_contents("entries/code.md");
-				} catch (Exception $e) {
-					echo 'Exception: ', $e->getMessage(), "\n";
-				}
 			}
-			echo $Pd->text('---');
-			$fname = "code.md";
-			echo($fname);
-			echo $Pd->text(file_get_contents($fname));
-			echo $Pd->text(file_get_contents($filename));
+			echo $Pd->text(file_get_contents($path));
 		?>
 		</p>
 	</div>

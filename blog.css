@@ -62,6 +62,7 @@ html {
 #content pre code {
 	border: none;
 	padding: 10px 0;
+	background-color: transparent;
 }
 #content img {
 	border: 1px solid grey;
