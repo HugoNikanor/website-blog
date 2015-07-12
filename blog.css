@@ -8,6 +8,7 @@ html {
 	background-color: #f7f7f7;
 	font-size: 15px;
 	margin: auto;
+	overflow: hidden;
 }
 #top-bar {
 	font-family: monospace;/*Replace with monospaced...*/
@@ -69,9 +70,33 @@ html {
 	max-width: 100%;
 	max-height: auto;
 }
+#content table, th, td {
+	padding: 5px;
+}
+#content table {
+	width: 60%;
+	margin: auto;
+}
+#content th {
+	text-decoration: underline;
+	font-size: 125%;
+	padding: 5px 0;
+}
+#content td {
+	width: 50%;
+	text-align: center;
+}
+#comment {
+	padding: 20px;
+	font-family: arial;
+	word-spacing: 1px;
+	max-height: 1000px;
+	overflow-y: scroll;
+}
 #footnote {
 	border-top: 1px solid lightgrey;
-	padding-top: 4px;
+	padding-top: 10px;
+	padding-bottom: 5px;
 	font-size: 14px;
 	text-align: center;
 }
@@ -82,5 +107,5 @@ html {
 	padding-left: 20px;
 }
 #footnote a:hover {
-	color: #505050;
+	color: #404040;
 }

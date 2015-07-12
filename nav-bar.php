@@ -59,6 +59,37 @@
 		//echo("<br> index not set<br>");
 		$pathIndex = $noEntries - 1;
 	}
+
+	/*
+	 * Sets the nav-buttons to grey if there isn't anything
+	 * more reachable by pressing them
+	 */
+	if($pathIndex == $noEntries - 1 ||
+	   $filename === 'list') {
+		echo("
+			<style type='text/css'>
+				.fwd {
+					pointer-events: none;
+					cursor: default;
+					color: grey !important;
+				}
+			</style>
+		");
+	}
+	if($pathIndex == 0 ||
+	   $filename === 'list') {
+		echo("
+			<style type='text/css'>
+				.back {
+					pointer-events: none;
+					cursor: default;
+					color: grey !important;
+				}
+			</style>
+		");
+	}
+
+	
 	
 	if($id === 'first') {
 		header("Location: ./blog.php?filename=" . substr($entries[0], 10));
@@ -93,6 +124,14 @@
 		header("Location: ./blog.php?filename=" . substr($entries[$noEntries - 1], 10));
 		die();
 		//$filename = substr($entries[$noEntries - 1], 10);
+	}
+	/*
+	 * when navigating to ./blog.php without anything else
+	 * forces the user to the direct link to the latest entry.
+	 */
+	if(!(isset($_GET['filename']))) {
+		header("Location: ./blog.php?filename=" . $filename);
+		die();
 	}
 
 ?>

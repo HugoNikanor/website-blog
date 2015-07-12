@@ -21,6 +21,7 @@ Website for my personal blog
 		require('ParsedownExtra.php');
 		
 		require('nav-bar.php');
+		require('other.php');
 	?>
 </head>
 <body>
@@ -33,15 +34,15 @@ Website for my personal blog
 	</div>
 	<div id="nav-pane">
 		<?php
-			echo("<a href='./blog.php?id=first'>|<</a>");
-			echo("<a id='prev' href='./blog.php?filename=" . $filename . "&id=prev'>Previous</a>");
+			echo("<a class='back' href='./blog.php?id=first'>|<</a>");
+			echo("<a class='back' href='./blog.php?filename=" . $filename . "&id=prev'>Previous</a>");
 			if($filename === 'list') {
-				echo("<a href='./blog.php'>Current entry</a>");
+				echo("<a href='./blog.php'>Latest entry</a>");
 			} else {
 				echo("<a href='./blog.php?id=list'>List</a>");
 			}
-			echo("<a id='next' href='./blog.php?filename=" . $filename . "&id=next'>Next</a>");
-			echo("<a href='./blog.php?id=latest'>>|</a>");
+			echo("<a class='fwd' href='./blog.php?filename=" . $filename . "&id=next'>Next</a>");
+			echo("<a class='fwd' href='./blog.php?id=latest'>>|</a>");
 		?>
 	</div>
 	<div id="content">
@@ -58,11 +59,25 @@ Website for my personal blog
 				$file = 'footnote/' . $filename;
 				echo $Pd->text(file_get_contents($file));
 			} elseif($filename==='list') {
+				echo('<table><tr><th>Date</th><th>Name</th></tr>');
 				for($i = count($entries) - 1; $i >= 0; $i--) {
-				$name = substr($entries[$i], 10);
-					echo("<a href='./blog.php?filename=" .
-					      $name . "'>" . $name . "<a><br>");
+					$name = substr($entries[$i], 10);
+					echo(
+						"<tr><td>" .
+						"<a href='./blog.php?filename=" . 
+						$name . "'>" . 
+						substr($name, 6, 2) . " " . 
+						getMonth(substr($name, 4, 2)) . " ". 
+						substr($name, 0, 4) . "</a>" .  
+						"</td>
+						<td>
+						<a href='./blog.php?filename=" . 
+						$name . "'>" . 
+						substr($name, 8, strlen($name) - 11) . "<a>
+						</td></tr>"
+					);
 				}
+				echo('</table>');
 			} else {
 				$file = 'entries/' . $filename;
 				echo $Pd->text(file_get_contents($file));
@@ -70,6 +85,17 @@ Website for my personal blog
 		?>
 		</p>
 	</div>
+	<!--
+		Add files here if they shouldn't have a comment section.
+	-->
+	<?php if(!(
+		!(isset($_GET['filename'])) ||
+		$filename === 'list' ||
+		$filename === 'about.md' ||
+		$filename === 'contact.md' ||
+		$filename === 'legal.md' ||
+		$filename === 'qna.md'
+	)) : ?>
 	<div id="comment">
 		<div id="disqus_thread"></div>
 		<script type="text/javascript">
@@ -83,8 +109,12 @@ Website for my personal blog
 			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
 		    })();
 		</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+		<noscript>
+			<hr>
+			<p><b>Please enable JavaScrpt if you desire to see the comments.</b><p>
+		</noscript> <!-- Sorry Disqus -->
 	</div>
+	<?php endif; ?>
 	<div id="footnote">
 		<a href="./blog.php?filename=about.md">About</a>
 		<a href="./blog.php?filename=contact.md">Contact</a>
