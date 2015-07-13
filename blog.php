@@ -120,7 +120,7 @@ Markup<?php "and php" ?> for my personal blog
 		</script>
 		<noscript>
 			<hr>
-			<p><b>Please enable JavaScrpt if you desire to see the <em>wonderful</em> comments.</b><p>
+			<p><b>Please enable JavaScrpt if you desire to see the <em>wonderful</em> comments.</b></p>
 		</noscript> <!-- Sorry Disqus -->
 	</div>
 	<?php endif; ?>
@@ -128,7 +128,7 @@ Markup<?php "and php" ?> for my personal blog
 		<a href="./blog.php?filename=about.md">About</a>
 		<a href="./blog.php?filename=contact.md">Contact</a>
 		<a href="./blog.php?filename=legal.md">Legal</a>
-		<a href="./blog.php?filename=qna.md">Q&A</a>
+		<a href="./blog.php?filename=qna.md">Q&amp;A</a>
 
 	</div>
 </div>
