@@ -11,9 +11,8 @@ html {
 	overflow: hidden;
 }
 #top-bar {
-	font-family: monospace;/*Replace with monospaced...*/
+	font-family: monospace;
 	text-align: center;
-	/*border-bottom: 1px solid grey;*/
 }
 #top-bar h1 {
 	font-size: 40px;

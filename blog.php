@@ -5,7 +5,7 @@
 <!--
 20150712 Hugo Hornquist
 
-Website for my personal blog
+Markup<?php "and php" ?> for my personal blog
 -->
 	<title>Blog</title>
 	<link rel="stylesheet" href="./blog.css">
@@ -28,7 +28,6 @@ Website for my personal blog
 <div id="all">
 	<div id="top-bar">
 	<h1><u>HugoNikanors blog</u><u style="letter-spacing:-0.65em">?!</u></h1>
-	<!--<h1><u>HugoNikanors blog<img src="//upload.wikimedia.org/wikipedia/commons/thumb/8/83/Interrobang.svg/75px-Interrobang.svg.png" alt="!?" style="height:1em"></img></u></h1>-->
 		<p>
 		En blog om datorer; spel, programmering & annat. Samt möjligen livet.
 		</p>
@@ -55,7 +54,6 @@ Website for my personal blog
 		<?php
 
 			$Pd = new parsedownExtra();
-			//$pd = new parsedown();
 			
 			if($filename==='about.md'   ||
 			   $filename==='contact.md' ||
@@ -98,9 +96,7 @@ Website for my personal blog
 			}
 		?>
 	</div>
-	<!--
-		Add files here if they shouldn't have a comment section.
-	-->
+	<!--Add files here if they shouldn't have a comment section.-->
 	<?php if(!(
 		!(isset($_GET['filename'])) ||
 		$filename === 'list'        ||
