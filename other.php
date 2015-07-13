@@ -1,7 +1,9 @@
 <?php
 
 
+
 function getMonth($input) {
+	
 	$monthNames = array(
 		'01' => "Jan",
 		'02' => "Feb",
@@ -18,7 +20,14 @@ function getMonth($input) {
 	);
 
 	if(isset($monthNames)) {
-		return($monthNames[$input]);
+		if(is_numeric($input) &&
+		   $input > 0 &&
+		   $input < 13) {
+			return($monthNames[$input]);
+		} else {
+			//return $input;
+			return 'und';
+		}
 	} else {
 		return('nope');
 	}

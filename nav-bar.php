@@ -13,7 +13,9 @@
 	{
 		// filter out "." and ".."
 		if ($fname->isDir()) continue;
-
+		if (substr($fname, strlen($fname) - 4, 4) === '.swp') continue;
+		if (substr($fname, strlen($fname) - 1, 1) === '~') continue;
+		
 		$entries[] = $fname;
 	}
 	
@@ -65,7 +67,12 @@
 	 * more reachable by pressing them
 	 */
 	if($pathIndex == $noEntries - 1 ||
-	   $filename === 'list') {
+	   $filename === 'list'         ||
+	   $filename === 'about.md'     ||
+	   $filename === 'contact.md'   ||
+	   $filename === 'legal.md'     ||
+	   $filename === 'qna.md'
+	   ) {
 		echo("
 			<style type='text/css'>
 				.fwd {
@@ -76,8 +83,13 @@
 			</style>
 		");
 	}
-	if($pathIndex == 0 ||
-	   $filename === 'list') {
+	if($pathIndex == 0            ||
+	   $filename === 'list'       ||
+	   $filename === 'about.md'   ||
+	   $filename === 'contact.md' ||
+	   $filename === 'legal.md'   ||
+	   $filename === 'qna.md'
+	   ) {
 		echo("
 			<style type='text/css'>
 				.back {

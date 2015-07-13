@@ -1,12 +1,12 @@
 <!DOCTYPE HTML>
 <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<html>
+<head>
 <!--
 20150712 Hugo Hornquist
 
 Website for my personal blog
 -->
-<html>
-<head>
 	<title>Blog</title>
 	<link rel="stylesheet" href="./blog.css">
 	<?php
@@ -27,26 +27,31 @@ Website for my personal blog
 <body>
 <div id="all">
 	<div id="top-bar">
-		<h1><u>HugoNikanors blog‽</u></h1>
+	<h1><u>HugoNikanors blog</u><u style="letter-spacing:-0.65em">?!</u></h1>
+	<!--<h1><u>HugoNikanors blog<img src="//upload.wikimedia.org/wikipedia/commons/thumb/8/83/Interrobang.svg/75px-Interrobang.svg.png" alt="!?" style="height:1em"></img></u></h1>-->
 		<p>
 		En blog om datorer; spel, programmering & annat. Samt möjligen livet.
 		</p>
 	</div>
 	<div id="nav-pane">
 		<?php
-			echo("<a class='back' href='./blog.php?id=first'>|<</a>");
-			echo("<a class='back' href='./blog.php?filename=" . $filename . "&id=prev'>Previous</a>");
-			if($filename === 'list') {
-				echo("<a href='./blog.php'>Latest entry</a>");
+			echo("<a class='back' href='./blog.php?id=first'>|&lt;</a>");
+			echo("<a class='back' href='./blog.php?filename=" . $filename . "&amp;id=prev'>Föregående</a>");
+			if($filename === 'list'     ||
+			   $filename==='about.md'   ||
+			   $filename==='contact.md' ||
+			   $filename==='legal.md'   || 
+			   $filename==='qna.md'
+			   ) {
+				echo("<a href='./blog.php'>Nuvarande inlägg</a>");
 			} else {
-				echo("<a href='./blog.php?id=list'>List</a>");
+				echo("<a href='./blog.php?id=list'>Lista</a>");
 			}
-			echo("<a class='fwd' href='./blog.php?filename=" . $filename . "&id=next'>Next</a>");
-			echo("<a class='fwd' href='./blog.php?id=latest'>>|</a>");
+			echo("<a class='fwd' href='./blog.php?filename=" . $filename . "&amp;id=next'>Nästa</a>");
+			echo("<a class='fwd' href='./blog.php?id=latest'>&gt;|</a>");
 		?>
 	</div>
 	<div id="content">
-		<p>
 		<?php
 
 			$Pd = new parsedownExtra();
@@ -59,41 +64,49 @@ Website for my personal blog
 				$file = 'footnote/' . $filename;
 				echo $Pd->text(file_get_contents($file));
 			} elseif($filename==='list') {
-				echo('<table><tr><th>Date</th><th>Name</th></tr>');
+				echo("<div id='list'><table><tr><th>Date</th><th>Name</th></tr>");
 				for($i = count($entries) - 1; $i >= 0; $i--) {
 					$name = substr($entries[$i], 10);
-					echo(
-						"<tr><td>" .
-						"<a href='./blog.php?filename=" . 
-						$name . "'>" . 
-						substr($name, 6, 2) . " " . 
-						getMonth(substr($name, 4, 2)) . " ". 
-						substr($name, 0, 4) . "</a>" .  
-						"</td>
-						<td>
-						<a href='./blog.php?filename=" . 
-						$name . "'>" . 
-						substr($name, 8, strlen($name) - 11) . "<a>
-						</td></tr>"
-					);
+					if(is_numeric(substr($name, 0, 6))) {
+						echo(
+							"<tr><td>
+							<a href='./blog.php?filename=" . 
+							$name . "'>" . 
+							substr($name, 6, 2) . " " . 
+							getMonth(substr($name, 4, 2)) . " ". 
+							substr($name, 0, 4) . "</a>" .  
+							"</td>
+							<td>
+							<a href='./blog.php?filename=" . 
+							$name . "'>" . 
+							substr($name, 8, strlen($name) - 11) . "</a>
+							</td></tr>"
+						);
+					} else {
+						echo(
+							"<tr><td></td><td>
+							<a href='./blog.php?filename=" .
+							$name . "'>" . $name . "</a>
+							</td></tr>"
+						);
+					}
 				}
-				echo('</table>');
+				echo('</table></div>');
 			} else {
 				$file = 'entries/' . $filename;
 				echo $Pd->text(file_get_contents($file));
 			}
 		?>
-		</p>
 	</div>
 	<!--
 		Add files here if they shouldn't have a comment section.
 	-->
 	<?php if(!(
 		!(isset($_GET['filename'])) ||
-		$filename === 'list' ||
-		$filename === 'about.md' ||
-		$filename === 'contact.md' ||
-		$filename === 'legal.md' ||
+		$filename === 'list'        ||
+		$filename === 'about.md'    ||
+		$filename === 'contact.md'  ||
+		$filename === 'legal.md'    ||
 		$filename === 'qna.md'
 	)) : ?>
 	<div id="comment">
@@ -111,7 +124,7 @@ Website for my personal blog
 		</script>
 		<noscript>
 			<hr>
-			<p><b>Please enable JavaScrpt if you desire to see the comments.</b><p>
+			<p><b>Please enable JavaScrpt if you desire to see the <em>wonderful</em> comments.</b><p>
 		</noscript> <!-- Sorry Disqus -->
 	</div>
 	<?php endif; ?>

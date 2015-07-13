@@ -70,19 +70,25 @@ html {
 	max-width: 100%;
 	max-height: auto;
 }
-#content table, th, td {
+#content blockquote {
+	border-left: 2px solid lightgrey;
+	padding-left: 0.5em;
+	color: #606060;
+	margin-left: 1em;
+}
+#content #list table, th, td {
 	padding: 5px;
 }
-#content table {
+#content #list table {
 	width: 60%;
 	margin: auto;
 }
-#content th {
+#content #list th {
 	text-decoration: underline;
 	font-size: 125%;
 	padding: 5px 0;
 }
-#content td {
+#content #list td {
 	width: 50%;
 	text-align: center;
 }
