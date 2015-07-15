@@ -7,7 +7,7 @@
 
 Markup<?php "and php" ?> for my personal blog
 -->
-	<title>Blog</title>
+	<title>Hugos blog</title>
 	<link rel="stylesheet" href="./blog.css">
 	<?php
 		error_reporting(E_ALL);
