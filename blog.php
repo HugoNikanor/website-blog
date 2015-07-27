@@ -5,9 +5,8 @@
 <!--
 20150712 Hugo Hornquist
 
-Markup<?php "and php" ?> for my personal blog
+Markup<?php /*and php*/ ?> for my personal blogg
 -->
-	<title>Hugos blog</title>
 	<link rel="stylesheet" href="./blog.css">
 	<?php
 		error_reporting(E_ALL);
@@ -23,13 +22,33 @@ Markup<?php "and php" ?> for my personal blog
 		require('nav-bar.php');
 		require('other.php');
 	?>
+	<title>
+	<?php
+		/*
+		if(($fh = fopen("./entries/" . $filename, 'r')) === true) {
+		}
+		else {
+			echo("Hugos blogg");
+		}
+		*/
+		echo("Hugos blogg");
+		if(file_exists("./entries/" . $filename)) {
+			$fh = fopen("./entries/" . $filename, 'r');
+			$buffer = fgets($fh);
+			if(substr($buffer, 0, 1) === "#") {
+				$title = substr($buffer, 1, strlen($buffer));
+				echo(" | " . $title);
+			}
+		}
+	?>
+	</title>
 </head>
 <body>
 <div id="all">
 	<div id="top-bar">
-	<h1><u>HugoNikanors blog</u><u style="letter-spacing:-0.65em">?!</u></h1>
+	<h1><u>HugoNikanors blogg</u><u style="letter-spacing:-0.65em">?!</u></h1>
 		<p>
-		En blog om datorer; spel, programmering & annat. Samt möjligen livet.
+		En blogg om datorer; spel, programmering & annat. Samt möjligen livet.
 		</p>
 	</div>
 	<div id="nav-pane">
