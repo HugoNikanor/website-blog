@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <html>
 <head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
 <!--
 20150712 Hugo Hornquist
 
