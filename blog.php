@@ -115,8 +115,9 @@ Markup<?php /*and php*/ ?> for my personal blogg
 			}
 		?>
 	</div>
-	<!--Add files here if they shouldn't have a comment section.-->
-	<?php if(!(
+	<?php
+	/*Add files here if they shouldn't have a comment section.*/
+	 if(!(
 		!(isset($_GET['filename'])) ||
 		$filename === 'list'        ||
 		$filename === 'about.md'    ||
