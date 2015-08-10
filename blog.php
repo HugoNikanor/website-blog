@@ -24,13 +24,6 @@ Markup<?php /*and php*/ ?> for my personal blogg
 	?>
 	<title>
 	<?php
-		/*
-		if(($fh = fopen("./entries/" . $filename, 'r')) === true) {
-		}
-		else {
-			echo("Hugos blogg");
-		}
-		*/
 		echo("Hugos blogg");
 		if(file_exists("./entries/" . $filename)) {
 			$fh = fopen("./entries/" . $filename, 'r');

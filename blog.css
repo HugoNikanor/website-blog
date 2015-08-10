@@ -67,7 +67,7 @@ html {
 #content img {
 	border: 1px solid grey;
 	max-width: 100%;
-	max-height: auto;
+	/*max-height: auto;*/
 }
 #content blockquote {
 	border-left: 2px solid lightgrey;
