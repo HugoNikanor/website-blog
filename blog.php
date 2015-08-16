@@ -113,12 +113,24 @@ Markup<?php /*and php*/ ?> for my personal blogg
 				if(true): ?>
 					</div> <!-- entryHeader -->
 					<div id=dateTag>
-						<p>Hugo Hornquist, 16 Aug 2015</p>
+						<p>Hugo Hornquist,
+				<?php endif;
+					if(isset($_GET['filename'])) {
+						$name = $filename;
+					}
+					if(is_numeric(substr($name, 0, 6))) {
+						echo(
+							substr($name, 6, 2) . " " . 
+							getMonth(substr($name, 4, 2)) . " ". 
+							substr($name, 0, 4)
+						);
+					}
+				if(true): ?>
+						</p>
 					</div> <!-- dateTag -->
 					</div> <!-- wrapper -->
 					<div id=entryBody>
 				<?php endif;
-					$file = 'entries/' . $filename;
 					echo $Pd->text(implode("", $file_array));
 				if(true): ?>
 					</div> <!-- entryBody -->
