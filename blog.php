@@ -113,20 +113,21 @@ Markup<?php /*and php*/ ?> for my personal blogg
 				if(true): ?>
 					</div> <!-- entryHeader -->
 					<div id=dateTag>
-						<p>Hugo Hornquist,
 				<?php endif;
 					if(isset($_GET['filename'])) {
 						$name = $filename;
 					}
 					if(is_numeric(substr($name, 0, 6))) {
 						echo(
+							"<p>Hugo Hornquist, " . 
 							substr($name, 6, 2) . " " . 
 							getMonth(substr($name, 4, 2)) . " ". 
-							substr($name, 0, 4)
+							substr($name, 0, 4) . "</p>"
 						);
+					} else {
+						echo("<p>Hugo Hornquist</p>");
 					}
 				if(true): ?>
-						</p>
 					</div> <!-- dateTag -->
 					</div> <!-- wrapper -->
 					<div id=entryBody>
