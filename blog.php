@@ -26,11 +26,11 @@ Markup<?php /*and php*/ ?> for my personal blogg
 	<?php
 		echo("Hugos blogg");
 		if(file_exists("./entries/" . $filename)) {
-			$fh = fopen("./entries/" . $filename, 'r');
-			$buffer = fgets($fh);
-			if(substr($buffer, 0, 1) === "#") {
-				$title = substr($buffer, 1, strlen($buffer));
-				echo(" | " . $title);
+			$file_array = file("./entries/" . $filename);
+			if(substr($file_array[0], 0, 1) === "#") {
+				$title = $file_array[0];
+				unset($file_array[0]);
+				echo(" | " . substr($titse, 1, strlen($title)));
 			}
 		}
 	?>
@@ -107,9 +107,11 @@ Markup<?php /*and php*/ ?> for my personal blogg
 					<div class=wrapper>
 					<div id=entryHeader>
 				<?php endif;
-				echo("<h1>Välkommen</h1>");
+				if(isset($title)) {
+					echo $Pd->text($title);
+				}
 				if(true): ?>
-					</div> <!-- entry -->
+					</div> <!-- entryHeader -->
 					<div id=dateTag>
 						<p>Hugo Hornquist, 16 Aug 2015</p>
 					</div> <!-- dateTag -->
@@ -117,10 +119,10 @@ Markup<?php /*and php*/ ?> for my personal blogg
 					<div id=entryBody>
 				<?php endif;
 					$file = 'entries/' . $filename;
-					echo $Pd->text(file_get_contents($file, null, null, 12, 1000));
+					echo $Pd->text(implode("", $file_array));
 
 				if(true): ?>
-
+					</div> <!-- entryBody -->
 				<?php endif;
 			}
 		?>
