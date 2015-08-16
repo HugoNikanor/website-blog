@@ -30,7 +30,7 @@ Markup<?php /*and php*/ ?> for my personal blogg
 			if(substr($file_array[0], 0, 1) === "#") {
 				$title = $file_array[0];
 				unset($file_array[0]);
-				echo(" | " . substr($titse, 1, strlen($title)));
+				echo(" | " . substr($title, 1, strlen($title)));
 			}
 		}
 	?>
@@ -120,13 +120,12 @@ Markup<?php /*and php*/ ?> for my personal blogg
 				<?php endif;
 					$file = 'entries/' . $filename;
 					echo $Pd->text(implode("", $file_array));
-
 				if(true): ?>
 					</div> <!-- entryBody -->
 				<?php endif;
 			}
 		?>
-	</div>
+	</div> <!-- Content -->
 	<?php
 	/*Add files here if they shouldn't have a comment section.*/
 	 if(!(

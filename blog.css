@@ -41,6 +41,7 @@ html {
 	font-family: arial;
 	word-spacing: 1px;
 }
+/* The following are to allow the date to be displayed correctly */
 #content .wrapper {
 	overflow: hidden;
 }
@@ -54,10 +55,11 @@ html {
 #content #dateTag {
 	overflow: hidden;
 	text-align: right;
-}
-#content #entryBody {
 
+	color: #606060;
+	font-size: 13px;
 }
+/* Begin actual formating of text */
 #content p {
 	line-height: 130%;
 	margin-bottom: 20px;
