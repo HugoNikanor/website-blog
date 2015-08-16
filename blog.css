@@ -41,6 +41,23 @@ html {
 	font-family: arial;
 	word-spacing: 1px;
 }
+#content .wrapper {
+	overflow: hidden;
+}
+#content #entryHeader {
+	float: left;
+}
+#content #entryHeader h1 {
+	margin-bottom: 0;
+	padding-bottom: 0;
+}
+#content #dateTag {
+	overflow: hidden;
+	text-align: right;
+}
+#content #entryBody {
+
+}
 #content p {
 	line-height: 130%;
 	margin-bottom: 20px;

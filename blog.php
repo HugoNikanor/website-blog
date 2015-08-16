@@ -103,8 +103,25 @@ Markup<?php /*and php*/ ?> for my personal blogg
 				}
 				echo('</table></div>');
 			} else {
-				$file = 'entries/' . $filename;
-				echo $Pd->text(file_get_contents($file));
+				if(true): ?>
+					<div class=wrapper>
+					<div id=entryHeader>
+				<?php endif;
+				echo("<h1>Välkommen</h1>");
+				if(true): ?>
+					</div> <!-- entry -->
+					<div id=dateTag>
+						<p>Hugo Hornquist, 16 Aug 2015</p>
+					</div> <!-- dateTag -->
+					</div> <!-- wrapper -->
+					<div id=entryBody>
+				<?php endif;
+					$file = 'entries/' . $filename;
+					echo $Pd->text(file_get_contents($file, null, null, 12, 1000));
+
+				if(true): ?>
+
+				<?php endif;
 			}
 		?>
 	</div>
