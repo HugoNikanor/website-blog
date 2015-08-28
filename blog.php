@@ -25,13 +25,17 @@ Markup<?php /*and php*/ ?> for my personal blogg
 	<title>
 	<?php
 		echo("Hugos blogg");
-		$fileExists = file_exists("./entries/" . $filename);
-		if($fileExists) {
-			$file_array = file("./entries/" . $filename);
-			if(substr($file_array[0], 0, 1) === "#") {
-				$title = $file_array[0];
-				unset($file_array[0]);
-				echo(" | " . substr($title, 1, strlen($title)));
+		if(isset($_GET['filename'])) {
+			$fileExists = false;	
+		} else {
+			$fileExists = file_exists("./entries/" . $filename);
+			if($fileExists) {
+				$file_array = file("./entries/" . $filename);
+				if(substr($file_array[0], 0, 1) === "#") {
+					$title = $file_array[0];
+					unset($file_array[0]);
+					echo(" | " . substr($title, 1, strlen($title)));
+				}
 			}
 		}
 	?>
