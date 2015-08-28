@@ -25,7 +25,7 @@ Markup<?php /*and php*/ ?> for my personal blogg
 	<title>
 	<?php
 		echo("Hugos blogg");
-		if(isset($_GET['filename'])) {
+		if(!isset($_GET['filename'])) {
 			$fileExists = false;	
 		} else {
 			$fileExists = file_exists("./entries/" . $filename);
