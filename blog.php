@@ -25,7 +25,8 @@ Markup<?php /*and php*/ ?> for my personal blogg
 	<title>
 	<?php
 		echo("Hugos blogg");
-		if(file_exists("./entries/" . $filename)) {
+		$fileExists = file_exists("./entries/" . $filename);
+		if($fileExists) {
 			$file_array = file("./entries/" . $filename);
 			if(substr($file_array[0], 0, 1) === "#") {
 				$title = $file_array[0];
@@ -41,7 +42,7 @@ Markup<?php /*and php*/ ?> for my personal blogg
 	<div id="top-bar">
 	<h1><u>HugoNikanors blogg</u><u style="letter-spacing:-0.65em">?!</u></h1>
 		<p>
-		En blogg om datorer; spel, programmering & annat. Samt möjligen livet.
+		En blogg om datorer; spel, programmering &amp; annat. Samt möjligen livet.
 		</p>
 	</div>
 	<div id="nav-pane">
@@ -102,7 +103,7 @@ Markup<?php /*and php*/ ?> for my personal blogg
 					}
 				}
 				echo('</table></div>');
-			} else {
+			} elseif($fileExists) {
 				if(true): ?>
 					<div class=wrapper>
 					<div id=entryHeader>
@@ -114,7 +115,7 @@ Markup<?php /*and php*/ ?> for my personal blogg
 					</div> <!-- entryHeader -->
 					<div id=dateTag>
 				<?php endif;
-					if(isset($_GET['filename'])) {
+					if($fileExists) {
 						$name = $filename;
 					}
 					if(is_numeric(substr($name, 0, 6))) {
@@ -136,13 +137,21 @@ Markup<?php /*and php*/ ?> for my personal blogg
 				if(true): ?>
 					</div> <!-- entryBody -->
 				<?php endif;
+			} else {
+				if(true): ?>
+					<p class=missingFileHeader>No such file exists!</p>
+					<p class=missingFileText>
+					There is no blog entry (or other file with that name on 
+					the server. Please try another file.
+					</p>
+				<?php endif;
 			}
 		?>
 	</div> <!-- Content -->
 	<?php
 	/*Add files here if they shouldn't have a comment section.*/
 	 if(!(
-		!(isset($_GET['filename'])) ||
+		!$fileExists                ||
 		$filename === 'list'        ||
 		$filename === 'about.md'    ||
 		$filename === 'contact.md'  ||

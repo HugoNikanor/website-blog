@@ -41,6 +41,17 @@ html {
 	font-family: arial;
 	word-spacing: 1px;
 }
+/* Scary text if the file is missing */
+#content .missingFileHeader {
+	font-size: 3em;
+	text-align: center;
+	text-decoration: underline;
+	font-weight: bold;
+}
+#content .missingFileText {
+	text-align: center;
+	font-size: 1.2em;
+}
 /* The following are to allow the date to be displayed correctly */
 #content .wrapper {
 	overflow: hidden;
