@@ -141,7 +141,7 @@ Markup<?php /*and php*/ ?> for my personal blogg
 				if(true): ?>
 					<p class=missingFileHeader>No such file exists!</p>
 					<p class=missingFileText>
-					There is no blog entry (or other file with that name on 
+					There is no blog entry (or other file) with that name on 
 					the server. Please try another file.
 					</p>
 				<?php endif;
