@@ -29,7 +29,10 @@ Markup<?php /*and php*/ ?> for my personal blogg
 		// Check if the file exists and isn't a bad string
 		$fileExists = file_exists("./entries/" . $filename);
 		if(empty($filename)) { $fileExists = false; }
-		if(substr($filename, 0, 2) === "..") { $fileExists = false; }
+		if((substr($filename, 0, 1) === ".") ||
+		   (substr($filename, 0, 1) === "/")) { 
+			  $fileExists = false; 
+		}
 
 		if($fileExists) {
 			$file_array = file("./entries/" . $filename);
