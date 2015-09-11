@@ -110,7 +110,7 @@ html {
 	padding: 5px;
 }
 #content #list table {
-	width: 60%;
+	width: 50%;
 	margin: auto;
 }
 #content #list th {
@@ -120,7 +120,20 @@ html {
 }
 #content #list td {
 	width: 50%;
-	text-align: center;
+	max-width: 50%;
+	word-wrap: break-word;
+}
+#content #list .tableLeft {
+	text-align: left;
+}
+#content #list .tableRight {
+	text-align: right;
+}
+#content #list th.tableLeft {
+	padding-left: 1em;
+}
+#content #list th.tableRight {
+	padding-right: 1em;
 }
 #comment {
 	padding: 20px;

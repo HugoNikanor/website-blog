@@ -86,19 +86,19 @@ Markup<?php /*and php*/ ?> for my personal blogg
 				$file = './footnote/' . $filename;
 				echo $Pd->text(file_get_contents($file));
 			} elseif($filename==='list') {
-				echo("<div nav='list'><table><tr><th>Date</th><th>Name</th></tr>");
+				echo("<div id='list'><table><tr><th class='tableLeft'>Date</th><th class='tableRight'>Name</th></tr>");
 				for($i = count($entries) - 1; $i >= 0; $i--) {
 					$name = substr($entries[$i], 10);
 					if(is_numeric(substr($name, 0, 6))) {
 						echo(
-							"<tr><td>
+							"<tr><td class='tableLeft'>
 							<a href='/blogg/" . 
 							$name . "'>" . 
 							substr($name, 6, 2) . " " . 
 							getMonth(substr($name, 4, 2)) . " ". 
 							substr($name, 0, 4) . "</a>" .  
 							"</td>
-							<td>
+							<td class='tableRight'>
 							<a href='/blogg/" . 
 							$name . "'>" . 
 							substr($name, 8, strlen($name) - 11) . "</a>
@@ -106,7 +106,7 @@ Markup<?php /*and php*/ ?> for my personal blogg
 						);
 					} else {
 						echo(
-							"<tr><td></td><td>
+							"<tr><td class='tableLeft'></td><td class='tableRight'>
 							<a href='/blogg/" .
 							$name . "'>" . $name . "</a>
 							</td></tr>"
