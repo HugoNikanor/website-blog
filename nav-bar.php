@@ -112,7 +112,7 @@ echo($nav);
 		if($pathIndex < 0) {
 			$pathIndex = 0;
 		}
-		header("Location: ./" . substr($entries[$pathIndex], 10) . "/");
+		header("Location: /blogg/" . substr($entries[$pathIndex], 10) . "/");
 		die();
 		//$filename = substr($entries[$pathIndex], 10);
 	}
@@ -127,7 +127,7 @@ echo($nav);
 		if($pathIndex >= $noEntries) {
 			$pathIndex = $noEntries - 1;
 		}
-		header("Location: ./" . substr($entries[$pathIndex], 10) . "/");
+		header("Location: /blogg/" . substr($entries[$pathIndex], 10) . "/");
 		die();
 		//$filename = substr($entries[$pathIndex], 10);
 	}
