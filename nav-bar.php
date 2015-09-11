@@ -103,7 +103,7 @@ echo($nav);
 	<?php endif;	
 	
 	if($nav === 'first') {
-		header("Location: ./" . substr($entries[0], 10) . "/");
+		header("Location: /blogg/" . substr($entries[0], 10) . "/");
 		die();
 		//$filename = substr($entries[0], 10);
 	}
@@ -132,7 +132,7 @@ echo($nav);
 		//$filename = substr($entries[$pathIndex], 10);
 	}
 	if($nav === 'latest') {
-		header("Location: ./" . substr($entries[$noEntries - 1], 10) . "/");
+		header("Location: /blogg/" . substr($entries[$noEntries - 1], 10) . "/");
 		die();
 		//$filename = substr($entries[$noEntries - 1], 10);
 	}
@@ -141,7 +141,8 @@ echo($nav);
 	 * forces the user to the direct link to the latest entry.
 	 */
 	if(!(isset($_GET['filename']))) {
-		header("Location: ./blog.php?filename=" . $filename);
+		// header("Location: ./blog.php?filename=" . $filename);
+		header("Location: /blogg/" . $filename . "/");
 		die();
 	}
 

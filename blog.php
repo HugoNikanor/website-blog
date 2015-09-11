@@ -55,7 +55,7 @@ Markup<?php /*and php*/ ?> for my personal blogg
 	</div>
 	<div id="nav-pane">
 		<?php
-			echo("<a class='back' href='./blog.php?nav=first'>|&lt;</a>");
+			echo("<a class='back' href='/blogg/a/first'>|&lt;</a>");
 			echo("<a class='back' href='/blogg/" . $filename . "/prev'>Föregående</a>");
 			if($filename === 'list'     ||
 			   $filename==='about.md'   ||
@@ -68,7 +68,7 @@ Markup<?php /*and php*/ ?> for my personal blogg
 				echo("<a href='./blog.php?nav=list'>Lista</a>");
 			}
 			echo("<a class='fwd' href='/blogg/" . $filename . "/next'>Nästa</a>");
-			echo("<a class='fwd' href='./blog.php?nav=latest'>&gt;|</a>");
+			echo("<a class='fwd' href='/blogg/a/latest'>&gt;|</a>");
 		?>
 	</div>
 	<div id="content">
