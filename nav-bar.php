@@ -41,7 +41,6 @@
 	} else  {
 		$nav = 0;
 	}
-echo($nav);
 
 	if(isset($_GET['filename'])) {
 		$filename = $_GET['filename'];
