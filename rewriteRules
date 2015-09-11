@@ -1,0 +1,19 @@
+/etc/apache2/apache2.conf
+
+# Rewrite rules
+# Shouldn't matter if there is a '/' or not at the end
+#
+# In the future I would like to replace 'å', 'ä' & 'ö' with 'a' & 'o'.
+RewriteEngine On
+
+		#	([^/.])      Dissallows entries with '.' or '/' in their names
+# Allows 'blog' to be used instead of 'blogg'. But 'blogg' still shows
+RewriteRule ^/blog/?$                   /blogg/                           [NC,R]
+RewriteRule ^/blog/([^/]+)/?$           /blogg/$1/                        [NC,R]
+RewriteRule ^/blog/([^/]+)/([^/]+)/?$   /blogg/$1/$2/                     [NC,R]
+# If no file is chosen
+RewriteRule ^/blogg/?$                  /html/blog.php                    [NC,L]
+# If file is chosen
+RewriteRule ^/blogg/([^/]+)/?$          /html/blog.php?filename=$1        [NC,L]
+# If file is chosen but 'nav' is used
+RewriteRule ^/blogg/([^/]+)/([^/]+)/?$  /html/blog.php?filename=$1&nav=$2 [NC,L]
