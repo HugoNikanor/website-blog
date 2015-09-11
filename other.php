@@ -26,7 +26,7 @@ function getMonth($input) {
 			return($monthNames[$input]);
 		} else {
 			//return $input;
-			return 'und';
+			return 'uuu';
 		}
 	} else {
 		return('nope');

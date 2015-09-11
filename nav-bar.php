@@ -33,10 +33,10 @@
 	 * Loads the variables from the url if they are present.
 	 * they are then set to default values if not specified.
 	 */
-	if(isset($_GET['id'])) {
-		$id = $_GET['id'];
+	if(isset($_GET['nav'])) {
+		$nav = $_GET['nav'];
 	} else  {
-		$id = 0;
+		$nav = 0;
 	}
 
 	if(isset($_GET['filename'])) {
@@ -72,68 +72,62 @@
 	   $filename === 'contact.md'   ||
 	   $filename === 'legal.md'     ||
 	   $filename === 'qna.md'
-	   ) {
-		echo("
-			<style type='text/css'>
-				.fwd {
-					pointer-events: none;
-					cursor: default;
-					color: grey !important;
-				}
-			</style>
-		");
-	}
+	   ) : ?> 
+	<style type='text/css'>
+		.fwd {
+			pointer-events: none;
+			cursor: default;
+			color: grey !important;
+		}
+	</style>
+	<?php endif;	
 	if($pathIndex == 0            ||
 	   $filename === 'list'       ||
 	   $filename === 'about.md'   ||
 	   $filename === 'contact.md' ||
 	   $filename === 'legal.md'   ||
 	   $filename === 'qna.md'
-	   ) {
-		echo("
-			<style type='text/css'>
-				.back {
-					pointer-events: none;
-					cursor: default;
-					color: grey !important;
-				}
-			</style>
-		");
-	}
-
+	   ) : ?> 
+	<style type='text/css'>
+		.back {
+			pointer-events: none;
+			cursor: default;
+			color: grey !important;
+		}
+	</style>
+	<?php endif;	
 	
-	
-	if($id === 'first') {
-		header("Location: ./blog.php?filename=" . substr($entries[0], 10));
+	if($nav === 'first') {
+		header("Location: ./" . substr($entries[0], 10) . "/");
 		die();
 		//$filename = substr($entries[0], 10);
 	}
-	if($id === 'prev') {
+	if($nav === 'prev') {
 		$pathIndex--;
 		if($pathIndex < 0) {
 			$pathIndex = 0;
 		}
-		header("Location: ./blog.php?filename=" . substr($entries[$pathIndex], 10));
+		header("Location: ./" . substr($entries[$pathIndex], 10) . "/");
 		die();
 		//$filename = substr($entries[$pathIndex], 10);
 	}
-	if($id === 'list') {
+	if($nav === 'list') {
 		//$filename = 'list';
 		header("Location: ./blog.php?filename=list");
 		die();
 
 	}
-	if($id === 'next') {
+	if($nav === 'next') {
 		$pathIndex++;
 		if($pathIndex >= $noEntries) {
 			$pathIndex = $noEntries - 1;
 		}
-		header("Location: ./blog.php?filename=" . substr($entries[$pathIndex], 10));
+		header("Location: ./" . substr($entries[$pathIndex], 10) . "/");
 		die();
 		//$filename = substr($entries[$pathIndex], 10);
 	}
-	if($id === 'latest') {
-		header("Location: ./blog.php?filename=" . substr($entries[$noEntries - 1], 10));
+	if($nav === 'latest') {
+		header("Location: ./" . substr($entries[$noEntries - 1], 10) . "/");
 		die();
 		//$filename = substr($entries[$noEntries - 1], 10);
 	}

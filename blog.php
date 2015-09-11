@@ -7,7 +7,7 @@
 
 Markup<?php /*and php*/ ?> for my personal blogg
 -->
-	<link rel="stylesheet" href="./blog.css">
+	<link rel="stylesheet" href="/html/blog/blog.css">
 	<?php
 		error_reporting(E_ALL);
 		ini_set('display_errors', '1');
@@ -55,8 +55,8 @@ Markup<?php /*and php*/ ?> for my personal blogg
 	</div>
 	<div id="nav-pane">
 		<?php
-			echo("<a class='back' href='./blog.php?id=first'>|&lt;</a>");
-			echo("<a class='back' href='./blog.php?filename=" . $filename . "&amp;id=prev'>Föregående</a>");
+			echo("<a class='back' href='./blog.php?nav=first'>|&lt;</a>");
+			echo("<a class='back' href='./blog.php?filename=" . $filename . "&amp;nav=prev'>Föregående</a>");
 			if($filename === 'list'     ||
 			   $filename==='about.md'   ||
 			   $filename==='contact.md' ||
@@ -65,10 +65,10 @@ Markup<?php /*and php*/ ?> for my personal blogg
 			   ) {
 				echo("<a href='./blog.php'>Nuvarande inlägg</a>");
 			} else {
-				echo("<a href='./blog.php?id=list'>Lista</a>");
+				echo("<a href='./blog.php?nav=list'>Lista</a>");
 			}
-			echo("<a class='fwd' href='./blog.php?filename=" . $filename . "&amp;id=next'>Nästa</a>");
-			echo("<a class='fwd' href='./blog.php?id=latest'>&gt;|</a>");
+			echo("<a class='fwd' href='./blog.php?filename=" . $filename . "&amp;nav=next'>Nästa</a>");
+			echo("<a class='fwd' href='./blog.php?nav=latest'>&gt;|</a>");
 		?>
 	</div>
 	<div id="content">
@@ -83,7 +83,7 @@ Markup<?php /*and php*/ ?> for my personal blogg
 				$file = 'footnote/' . $filename;
 				echo $Pd->text(file_get_contents($file));
 			} elseif($filename==='list') {
-				echo("<div id='list'><table><tr><th>Date</th><th>Name</th></tr>");
+				echo("<div nav='list'><table><tr><th>Date</th><th>Name</th></tr>");
 				for($i = count($entries) - 1; $i >= 0; $i--) {
 					$name = substr($entries[$i], 10);
 					if(is_numeric(substr($name, 0, 6))) {
