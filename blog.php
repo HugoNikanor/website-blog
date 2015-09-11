@@ -63,9 +63,9 @@ Markup<?php /*and php*/ ?> for my personal blogg
 			   $filename==='legal.md'   || 
 			   $filename==='qna.md'
 			   ) {
-				echo("<a href='./blog.php'>Nuvarande inlägg</a>");
+				echo("<a href='/blog.php'>Nuvarande inlägg</a>");
 			} else {
-				echo("<a href='./blog.php?nav=list'>Lista</a>");
+				echo("<a href='/blog.php?nav=list'>Lista</a>");
 			}
 			echo("<a class='fwd' href='/blogg/" . $filename . "/next'>Nästa</a>");
 			echo("<a class='fwd' href='/blogg/a/latest'>&gt;|</a>");
@@ -80,7 +80,7 @@ Markup<?php /*and php*/ ?> for my personal blogg
 			   $filename==='contact.md' ||
 			   $filename==='legal.md'   || 
 			   $filename==='qna.md') {
-				$file = 'footnote/' . $filename;
+				$file = './footnote/' . $filename;
 				echo $Pd->text(file_get_contents($file));
 			} elseif($filename==='list') {
 				echo("<div nav='list'><table><tr><th>Date</th><th>Name</th></tr>");
@@ -89,14 +89,14 @@ Markup<?php /*and php*/ ?> for my personal blogg
 					if(is_numeric(substr($name, 0, 6))) {
 						echo(
 							"<tr><td>
-							<a href='./blog.php?filename=" . 
+							<a href='/blogg/" . 
 							$name . "'>" . 
 							substr($name, 6, 2) . " " . 
 							getMonth(substr($name, 4, 2)) . " ". 
 							substr($name, 0, 4) . "</a>" .  
 							"</td>
 							<td>
-							<a href='./blog.php?filename=" . 
+							<a href='/blogg/" . 
 							$name . "'>" . 
 							substr($name, 8, strlen($name) - 11) . "</a>
 							</td></tr>"
@@ -104,7 +104,7 @@ Markup<?php /*and php*/ ?> for my personal blogg
 					} else {
 						echo(
 							"<tr><td></td><td>
-							<a href='./blog.php?filename=" .
+							<a href='/blogg/" .
 							$name . "'>" . $name . "</a>
 							</td></tr>"
 						);
@@ -186,10 +186,10 @@ Markup<?php /*and php*/ ?> for my personal blogg
 	</div>
 	<?php endif; ?>
 	<div id="footnote">
-		<a href="./blog.php?filename=about.md">About</a>
-		<a href="./blog.php?filename=contact.md">Contact</a>
-		<a href="./blog.php?filename=legal.md">Legal</a>
-		<a href="./blog.php?filename=qna.md">Q&amp;A</a>
+		<a href="/blogg/about.md/"  >About</a>
+		<a href="/blogg/contact.md/">Contact</a>
+		<a href="/blogg/legal.md/"  >Legal</a>
+		<a href="/blogg/qna.md/"    >Q&amp;A</a>
 
 	</div>
 </div>
