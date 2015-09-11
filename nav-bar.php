@@ -4,6 +4,9 @@
 	 *
 	 * Php 'libary' to handle the file sorting as well as the buttens
 	 * on the nav-bar on the website.
+	 * 
+	 *
+	 * The '10' when getting filepaths is due to ./entries/<file>
 	 */
 	
 	/*
@@ -38,12 +41,14 @@
 	} else  {
 		$nav = 0;
 	}
+echo($nav);
 
 	if(isset($_GET['filename'])) {
 		$filename = $_GET['filename'];
 	} else {
 		$filename = substr($entries[$noEntries - 1], 10);
 	}
+	
 
 	/*
 	 * Gets the index in the file array for the current file
