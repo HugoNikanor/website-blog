@@ -1,4 +1,7 @@
-/etc/apache2/apache2.conf
+a2enmod rewrite #Enable url rewriting
+/etc/apache2/apache2.conf #filepath, add below there
+
+--------------------------------------------------------------------------------
 
 # Rewrite rules
 # Shouldn't matter if there is a '/' or not at the end
