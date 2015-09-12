@@ -115,6 +115,7 @@
 		die();
 		//$filename = substr($entries[$pathIndex], 10);
 	}
+	//This function isn't used anymore, and should be removed
 	if($nav === 'list') {
 		//$filename = 'list';
 		header("Location: ./blog.php?filename=list");
