@@ -2,6 +2,8 @@ a2enmod rewrite #Enable url rewriting
 /etc/apache2/apache2.conf #filepath, add below there
 
 --------------------------------------------------------------------------------
+ServerName hugoweb.ga
+DocumentRoot /var/www/html/
 
 # Rewrite rules
 # Shouldn't matter if there is a '/' or not at the end
@@ -15,8 +17,15 @@ RewriteRule ^/blog/?$                   /blogg/                           [NC,R]
 RewriteRule ^/blog/([^/]+)/?$           /blogg/$1/                        [NC,R]
 RewriteRule ^/blog/([^/]+)/([^/]+)/?$   /blogg/$1/$2/                     [NC,R]
 # If no file is chosen
-RewriteRule ^/blogg/?$                  /html/blog.php                    [NC,L]
+RewriteRule ^/blogg/?$                  /blog.php                    [NC,L]
 # If file is chosen
-RewriteRule ^/blogg/([^/]+)/?$          /html/blog.php?filename=$1        [NC,L]
+RewriteRule ^/blogg/([^/]+)/?$          /blog.php?filename=$1        [NC,L]
 # If file is chosen but 'nav' is used
-RewriteRule ^/blogg/([^/]+)/([^/]+)/?$  /html/blog.php?filename=$1&nav=$2 [NC,L]
+RewriteRule ^/blogg/([^/]+)/([^/]+)/?$  /blog.php?filename=$1&nav=$2 [NC,L]
+
+--------------------------------------------------------------------------------
+
+/etc/apache2/sites-enabled/000-default.conf
+
+Disable the virtual host
+(I did it by changing the port...)
