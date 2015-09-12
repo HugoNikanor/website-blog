@@ -7,7 +7,7 @@
 
 Markup<?php /*and php*/ ?> for my personal blogg
 -->
-	<link rel="stylesheet" href="/html/blog.css">
+	<link rel="stylesheet" href="/blog.css">
 	<?php
 		error_reporting(E_ALL);
 		ini_set('display_errors', '1');
