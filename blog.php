@@ -1,12 +1,12 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-<!--
-20150712 Hugo Hornquist
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<!--
+	20150712 Hugo Hornquist
 
-Markup<?php /*and php*/ ?> for my personal blogg
--->
+	Markup<?php /*and php*/ ?> for my personal blogg
+	-->
 	<link rel="stylesheet" href="/blog.css">
 	<?php
 		error_reporting(E_ALL);
@@ -20,29 +20,30 @@ Markup<?php /*and php*/ ?> for my personal blogg
 		require('ParsedownExtra.php');
 		
 		require('nav-bar.php');
-		require('other.php');
+		require('month-to-string.php');
+		require('content-strings.php');
 	?>
 	<title>
-	<?php
-		echo("Hugos blogg");
-		
-		// Check if the file exists and isn't a bad string
-		$fileExists = file_exists("./entries/" . $filename);
-		if(empty($filename)) { $fileExists = false; }
-		if((substr($filename, 0, 1) === ".") ||
-		   (substr($filename, 0, 1) === "/")) { 
-			  $fileExists = false; 
-		}
-
-		if($fileExists) {
-			$file_array = file("./entries/" . $filename );
-			if(substr($file_array[0], 0, 1) === "#") {
-				$title = $file_array[0];
-				unset($file_array[0]);
-				echo(" | " . substr($title, 1, strlen($title)));
+		<?php
+			echo("Hugos blogg");
+			
+			// Check if the file exists and isn't a bad string
+			$fileExists = file_exists("./entries/" . $filename);
+			if(empty($filename)) { $fileExists = false; }
+			if((substr($filename, 0, 1) === ".") ||
+				 (substr($filename, 0, 1) === "/")) { 
+					$fileExists = false; 
 			}
-		}
-	?>
+
+			if($fileExists) {
+				$file_array = file("./entries/" . $filename );
+				if(substr($file_array[0], 0, 1) === "#") {
+					$title = $file_array[0];
+					unset($file_array[0]);
+					echo(" | " . substr($title, 1, strlen($title)));
+				}
+			}
+		?>
 	</title>
 </head>
 <body>
