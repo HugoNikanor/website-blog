@@ -63,7 +63,7 @@
 			 * The /a/ is a dummy string, since the nav info is always in 'block' 2.
 			 */
 			echo("<a class='back' href='" . getUrl('first') . "'>|&lt;</a>");
-			echo("<a class='back' href='/blogg/" . $filename . "/prev'>Föregående</a>");
+			echo("<a class='back' href='" . getUrlFilename( "prev", $filename ) . "'>Föregående</a>");
 			if($filename === 'list'     ||
 			   $filename==='about.md'   ||
 			   $filename==='contact.md' ||
@@ -74,7 +74,7 @@
 			} else {
 				echo("<a href='" . getUrl("list") . "'>Lista</a>");
 			}
-			echo("<a class='fwd' href='/blogg/" . $filename . "/next'>Nästa</a>");
+			echo("<a class='fwd' href='" . getUrlFilename( "next", $filename ) . "'>Nästa</a>");
 			echo("<a class='fwd' href='" . getUrl("latest") . "'>&gt;|</a>");
 		?>
 	</div>
@@ -194,10 +194,10 @@
 	<?php endif; ?>
 	<div id="footnote">
 		<?php
-			echo('<a href="' . getUrlFilename( "about.md"   ) . '">About</a>'  );
-			echo('<a href="' . getUrlFilename( "contact.md" ) . '">Contact</a>');
-			echo('<a href="' . getUrlFilename( "legal.md"   ) . '">Legal</a>'  );
-			echo('<a href="' . getUrlFilename( "qna.md"     ) . '">Q&amp;A</a>');
+			echo('<a href="' . getUrlFilename( "regular", "about.md"   ) . '">About</a>'  );
+			echo('<a href="' . getUrlFilename( "regular", "contact.md" ) . '">Contact</a>');
+			echo('<a href="' . getUrlFilename( "regular", "legal.md"   ) . '">Legal</a>'  );
+			echo('<a href="' . getUrlFilename( "regular", "qna.md"     ) . '">Q&amp;A</a>');
 		?>
 
 	</div>

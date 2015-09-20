@@ -27,10 +27,17 @@
 		}
 	}
 
-	function getUrlFilename( $filename ) {
+	function getUrlFilename( $type, $filename ) {
 		$urls = parse_ini_file('urls.ini', true);
 		if( isset( $urls["urlStyle"] ) ) {
-				return $urls[ $urls["urlStyle"] ]["urlPreceed"] . $urls[ $urls["urlStyle"] ]["entry"] . $filename;
+				$returnString = $urls[ $urls["urlStyle"] ]["urlPreceed"] . $urls[ $urls["urlStyle"] ]["entry"] . $filename;
+				if( $type === "prev" ) {
+					$returnString .= $urls[ $urls["urlStyle"] ]["prev"];
+				}
+				if( $type === "next" ) {
+					$returnString .= $urls[ $urls["urlStyle"] ]["next"];
+				}
+				return $returnString;
 		} else {
 			throw new Exception('getUrlFilename > url mode not set');
 		}
