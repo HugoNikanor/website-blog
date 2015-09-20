@@ -13,23 +13,26 @@
 		}
 	}
 
-	function getUrl($key) {
-		if($urls["urlStyle"] === "fancy") {
-			if(isset($urls["fancy"][$key])) {
-				return $urls["fancy"][$key];
+	function getUrl( $key ) {
+		$urls = parse_ini_file('urls.ini', true);
+		if( isset( $urls["urlStyle"] ) ) {
+			if(isset($urls[ $urls["urlStyle"] ][$key])) {
+				return $urls[ $urls["urlStyle"] ]["urlPreceed"] . $urls[ $urls["urlStyle"] ][$key];
 			}
 			else {
-				throw new Exception('getUrl > fancy > no such value');
-			}
-		} elseif( $urls["urlStyle"] === "raw" ) {
-			if(isset($urls["raw"][$key])) {
-				return $urls["raw"][$key];
-			}
-			else {
-				throw new Exception('getUrl > raw > no such value');
+				throw new Exception('getUrl > no such value');
 			}
 		} else {
-			throw new Exception('getUrl > invalid url mode');
+			throw new Exception('getUrl > url mode not set');
+		}
+	}
+
+	function getUrlFilename( $filename ) {
+		$urls = parse_ini_file('urls.ini', true);
+		if( isset( $urls["urlStyle"] ) ) {
+				return $urls[ $urls["urlStyle"] ]["urlPreceed"] . $urls[ $urls["urlStyle"] ]["entry"] . $filename;
+		} else {
+			throw new Exception('getUrlFilename > url mode not set');
 		}
 	}
 

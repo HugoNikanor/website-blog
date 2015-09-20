@@ -62,7 +62,7 @@
 			/*
 			 * The /a/ is a dummy string, since the nav info is always in 'block' 2.
 			 */
-			echo("<a class='back' href='/blogg/a/first'>|&lt;</a>");
+			echo("<a class='back' href='" . getUrl('first') . "'>|&lt;</a>");
 			echo("<a class='back' href='/blogg/" . $filename . "/prev'>Föregående</a>");
 			if($filename === 'list'     ||
 			   $filename==='about.md'   ||
@@ -70,15 +70,15 @@
 			   $filename==='legal.md'   || 
 			   $filename==='qna.md'
 			   ) {
-				echo("<a href='/blogg/a/latest'>Nuvarande inlägg</a>");
+				echo("<a href='" . getUrl("latest") . "'>Nuvarande inlägg</a>");
 			} else {
-				echo("<a href='/blogg/list/'>Lista</a>");
+				echo("<a href='" . getUrl("list") . "'>Lista</a>");
 			}
 			echo("<a class='fwd' href='/blogg/" . $filename . "/next'>Nästa</a>");
-			echo("<a class='fwd' href='/blogg/a/latest'>&gt;|</a>");
+			echo("<a class='fwd' href='" . getUrl("latest") . "'>&gt;|</a>");
 		?>
 	</div>
-	<div id="content">
+	 <div id="content">
 		<?php
 
 			$Pd = new parsedownExtra();
@@ -193,10 +193,12 @@
 	</div>
 	<?php endif; ?>
 	<div id="footnote">
-		<a href="/blogg/about.md/"  >About</a>
-		<a href="/blogg/contact.md/">Contact</a>
-		<a href="/blogg/legal.md/"  >Legal</a>
-		<a href="/blogg/qna.md/"    >Q&amp;A</a>
+		<?php
+			echo('<a href="' . getUrlFilename( "about.md"   ) . '">About</a>'  );
+			echo('<a href="' . getUrlFilename( "contact.md" ) . '">Contact</a>');
+			echo('<a href="' . getUrlFilename( "legal.md"   ) . '">Legal</a>'  );
+			echo('<a href="' . getUrlFilename( "qna.md"     ) . '">Q&amp;A</a>');
+		?>
 
 	</div>
 </div>
