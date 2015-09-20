@@ -7,10 +7,12 @@
 
 	Markup<?php /*and php*/ ?> for my personal blogg
 	-->
-	<link rel="stylesheet" href="/blog.css">
 	<?php
-		error_reporting(E_ALL);
-		ini_set('display_errors', '1');
+		//error_reporting(E_ALL);
+		//ini_set('display_errors', '1');
+		ini_set('display_startup_errors', 1);
+		ini_set('display_errors', 1);
+		error_reporting(-1);
 		
 		//debug items
 		//echo exec('whoami');
@@ -22,10 +24,11 @@
 		require('nav-bar.php');
 		require('month-to-string.php');
 		require('content-strings.php');
+		echo('<link rel="stylesheet" href="' . getString('rootDir') . '/blog.css">');
 	?>
 	<title>
 		<?php
-			echo("Hugos blogg");
+			echo( getString('title') );
 			
 			// Check if the file exists and isn't a bad string
 			$fileExists = file_exists("./entries/" . $filename);
@@ -49,10 +52,10 @@
 <body>
 <div id="all">
 	<div id="top-bar">
-	<h1><u>HugoNikanors blogg</u><u style="letter-spacing:-0.65em">?!</u></h1>
-		<p>
-		En blogg om datorer; spel, programmering &amp; annat. Samt möjligen livet.
-		</p>
+		<?php 
+			echo('<h1>' . getString('header') . '</h1>');
+			echo('<p>'  . getString('subHeader') . '</p>');
+		?>
 	</div>
 	<div id="nav-pane">
 		<?php
@@ -132,13 +135,13 @@
 					}
 					if(is_numeric(substr($name, 0, 6))) {
 						echo(
-							"<p>Hugo Hornquist, " . 
+							"<p>" . getString('author') . ", " . 
 							substr($name, 6, 2) . " " . 
 							getMonth(substr($name, 4, 2)) . " ". 
 							substr($name, 0, 4) . "</p>"
 						);
 					} else {
-						echo("<p>Hugo Hornquist</p>");
+						echo('<p>' . getString('author') . '</p>');
 					}
 				if(true): ?>
 					</div> <!-- dateTag -->
