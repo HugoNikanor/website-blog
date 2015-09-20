@@ -1,1 +1,0 @@
-- Long file names destroy layout on list screen
