@@ -1,7 +1,7 @@
 <?php
 
-	$strings = parse_ini_file('content-strings.ini');
-	$urls    = parse_ini_file('urls.ini', true);
+	//$strings = parse_ini_file('content-strings.ini');
+	//$urls    = parse_ini_file('urls.ini', true);
 
 	function getString($key) {
 		$strings = parse_ini_file('content-strings.ini');

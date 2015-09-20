@@ -21,9 +21,10 @@
 		require('Parsedown.php');
 		require('ParsedownExtra.php');
 		
+		require('content-strings.php');
 		require('nav-bar.php');
 		require('month-to-string.php');
-		require('content-strings.php');
+
 		echo('<link rel="stylesheet" href="' . getString('rootDir') . '/blog.css">');
 	?>
 	<title>

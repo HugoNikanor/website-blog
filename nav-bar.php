@@ -102,7 +102,8 @@
 	<?php endif;	
 	
 	if($nav === 'first') {
-		header("Location: /blogg/" . substr($entries[0], 10) . "/");
+		//header("Location: /blogg/" . substr($entries[0], 10) . "/");
+		header("Location: " . getUrlFilename( "default", substr($entries[0], 10) ));
 		die();
 		//$filename = substr($entries[0], 10);
 	}
@@ -111,28 +112,30 @@
 		if($pathIndex < 0) {
 			$pathIndex = 0;
 		}
-		header("Location: /blogg/" . substr($entries[$pathIndex], 10) . "/");
+		//header("Location: /blogg/" . substr($entries[$pathIndex], 10) . "/");
+		header("Location: " . getUrlFilename( "default", substr($entries[$pathIndex], 10) ));
 		die();
 		//$filename = substr($entries[$pathIndex], 10);
 	}
 	//This function isn't used anymore, and should be removed
-	if($nav === 'list') {
-		//$filename = 'list';
-		header("Location: ./blog.php?filename=list");
-		die();
-
-	}
+	//if($nav === 'list') {
+	//	//$filename = 'list';
+	//	header("Location: ./blog.php?filename=list");
+	//	die();
+	//}
 	if($nav === 'next') {
 		$pathIndex++;
 		if($pathIndex >= $noEntries) {
 			$pathIndex = $noEntries - 1;
 		}
-		header("Location: /blogg/" . substr($entries[$pathIndex], 10) . "/");
+		//header("Location: /blogg/" . substr($entries[$pathIndex], 10) . "/");
+		header("Location: " . getUrlFilename( "default", substr($entries[$pathIndex], 10) ));
 		die();
 		//$filename = substr($entries[$pathIndex], 10);
 	}
 	if($nav === 'latest') {
-		header("Location: /blogg/" . substr($entries[$noEntries - 1], 10) . "/");
+		//header("Location: /blogg/" . substr($entries[$noEntries - 1], 10) . "/");
+		header("Location: " . getUrlFilename( "default", substr($entries[$pathIndex - 1], 10) ));
 		die();
 		//$filename = substr($entries[$noEntries - 1], 10);
 	}
@@ -142,7 +145,8 @@
 	 */
 	if(!(isset($_GET['filename']))) {
 		// header("Location: ./blog.php?filename=" . $filename);
-		header("Location: /blogg/" . $filename . "/");
+		//header("Location: /blogg/" . $filename . "/");
+		header("Location: " . getUrlFilename( "default",  $filename ));
 		die();
 	}
 
