@@ -1,49 +1,56 @@
-#My Blog Engine! 
+HashOver 1.0
+========
+<b>HashOver</b> is a PHP comment system intended as a replacement for services like Disqus. HashOver is free and open source software, under the <a href="http://www.gnu.org/licenses/agpl.html" target="_blank">GNU Affero General Public License</a>. HashOver adds a "comment section" to any website, by placing a few simple lines of JavaScript or PHP to the source code of any webpage. HashOver is a self-hosted system and allows completely anonymous comments to be posted, the only required information is the comment itself.
 
-This is my small blog engine created for my personal use, but is free to use for
-anyone else, if you feel inclined to do so. ( But I wouldn't recommend it )
+<b>Notice</b>
 
-##About
-The engine is developed for an apache2 server, but might work on other server types
-to, if you are lucky.
+---
 
-##Usage
-Make sure that you have php installed on the server.
+This is the current stable version of HashOver, it is not actively developed, instead work on the next version is done on the "hashover-next" repository. Code contributions ("Pull Requests") to/of this repository will be rejected. Please submit issues, clone and commit changes to the following repository instead: https://github.com/jacobwb/hashover-next
 
-Copy all the files into a directory accessible by the server.
+<b>Information and Documentation</b>
 
-###Creating directories
-In that directory, create an ``./entries`` directory and put at least one file
-in it. Then create:
-``
-./footnote/about.md
-./footnote/contact.md
-./footnote/legal.md
-./footnote/qna.md
-`` 
+---
 
-###Choosing settings
-For apache's rewrite engine ``rewrite.conf`` is included, with instructions on
-where to put it.
+http://tildehash.com/?page=hashover
 
-In the files ``content-strings.ini`` and ``urls.ini`` can further settings be
-found ( that you should take a look on ).
-
-In ``blog.php`` there is a link to my Disqus comments. I strongly recommend that
-you change what discussion this points to.
-
-###Writing entries
-The engine is built on Parsedown, which allows the entries to be written in 
-markdown.
-
-All blog entries that should be published should be put in the ``/entries`` folder.  
-Preferably, they should be named according to the format: ``YYYYMMDDFile_name.md``
-due to how the engine checks for dates, and how the list functionality renders
-the entries.
-
-##Licensing
-Parsedown is licensed under the MIT license, detailed [here](./LICENSE_PARSEDOWN.php).
-
-The blog engine in itself is currently not licensed under any license, but is due
-to be licensed under the GNU GPL, as soon as the Disqus comments are replaced
-by a free alternative.
+<b>Notable Features</b>
+---
+<table cellpadding="2" cellspacing="2" width="100%">
+	<tbody>
+		<tr>
+			<td width="39%">
+				<ul>
+					<li>Restricted use of HTML tags</li>
+					<li>Display externally hosted images</li>
+					<li>Five comment sorting methods</li>
+					<li>Multiple languages</li>
+					<li>Spam filtering</li>
+					<li>IP address blocking</li>
+					<li>Notification emails</li>
+				</ul>
+			</td>
+			<td width="33%">
+				<ul>
+					<li>Threaded replies</li>
+					<li>Avatar icons</li>
+					<li>Comment editing &amp; deletion</li>
+					<li>Comment RSS feeds</li>
+					<li>Likes</li>
+					<li>Popular comments</li>
+					<li>Comment layout templates</li>
+				</ul>
+			</td>
+			<td valign="top" width="28%">
+				<ul>
+					<li>Administration</li>
+					<li>Automatic URL links</li>
+					<li>Customizable HTML</li>
+					<li>Customizable CSS</li>
+					<li>Referrer checking</li>
+					<li>Permalinks</li>
+				</ul>
+			</td>
+		</tr>
+	</tbody>
+</table>

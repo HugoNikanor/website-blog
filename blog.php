@@ -175,22 +175,8 @@
 		$filename === 'qna.md'
 	)) : ?>
 	<div id="comment">
-		<div id="disqus_thread"></div>
-		<script type="text/javascript">
-		    /* * * CONFIGURATION VARIABLES * * */
-		    var disqus_shortname = 'hugonikanor';
-		    
-		    /* * * DON'T EDIT BELOW THIS LINE * * */
-		    (function() {
-			var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-			dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-			(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-		    })();
-		</script>
-		<noscript>
-			<hr>
-			<p><b>Please enable JavaScrpt if you desire to see the <em>wonderful</em> comments.</b></p>
-		</noscript> <!-- Sorry Disqus -->
+		<script type="text/javascript" src="/hashover.php"></script>
+		<noscript>Enable javascript</noscript>
 	</div>
 	<?php endif; ?>
 	<div id="footnote">

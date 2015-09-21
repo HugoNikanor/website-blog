@@ -12,12 +12,14 @@
 	/*
 	 * Loads the contents of ./entries/ into an array
 	 */
-	foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator('./entries')) as $fname)
+	$entriesDir = './entries';
+	foreach (new RecursiveIteratorIterator(new RecursiveDirectoryIterator($entriesDir)) as $fname)
 	{
 		// filter out "." and ".."
 		if ($fname->isDir()) continue;
 		if (substr($fname, strlen($fname) - 4, 4) === '.swp') continue;
 		if (substr($fname, strlen($fname) - 1, 1) === '~') continue;
+		if(substr($fname, strlen($entriesDir) + 1, 1) === '.') continue;
 		
 		$entries[] = $fname;
 	}
