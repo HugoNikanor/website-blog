@@ -1,13 +1,13 @@
 *.swp
 *~
-/entries
-/media
-/footnote
+
+entries/*
+!entries/20001230Dummy.md
+media/
 
 password.php
 upload.php
 uploadFile.php
-index.php
 
 .htaccess
 
