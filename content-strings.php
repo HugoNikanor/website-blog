@@ -3,7 +3,7 @@
 	//$strings = parse_ini_file('content-strings.ini');
 	//$urls    = parse_ini_file('urls.ini', true);
 
-	function getString($key) {
+	function getString( $key ) {
 		$strings = parse_ini_file('content-strings.ini');
 		if(isset($strings[$key])) {
 			return $strings[$key];
@@ -17,7 +17,11 @@
 		$urls = parse_ini_file('urls.ini', true);
 		if( isset( $urls["urlStyle"] ) ) {
 			if(isset($urls[ $urls["urlStyle"] ][$key])) {
-				return $urls[ $urls["urlStyle"] ]["urlPreceed"] . $urls[ $urls["urlStyle"] ][$key];
+				$returnValue=
+					$urls[ $urls["urlStyle"] ]["urlPreceed"] .
+					$urls[ $urls["urlStyle"] ][$key] .
+					$urls[ $urls["urlStyle"] ]["urlAppend"];
+				return $returnValue;
 			}
 			else {
 				throw new Exception('getUrl > no such value');
@@ -30,13 +34,14 @@
 	function getUrlFilename( $type, $filename ) {
 		$urls = parse_ini_file('urls.ini', true);
 		if( isset( $urls["urlStyle"] ) ) {
-				$returnString = $urls[ $urls["urlStyle"] ]["urlPreceed"] . $urls[ $urls["urlStyle"] ]["entry"] . $filename;
+				$returnString = $urls[ $urls["urlStyle"] ]["urlPreceed"] . $urls[ $urls["urlStyle"] ]["entry"] . $filename ;
 				if( $type === "prev" ) {
 					$returnString .= $urls[ $urls["urlStyle"] ]["prev"];
 				}
 				if( $type === "next" ) {
 					$returnString .= $urls[ $urls["urlStyle"] ]["next"];
 				}
+				$returnString .= $urls[ $urls["urlStyle"] ]["urlAppend"];
 				return $returnString;
 		} else {
 			throw new Exception('getUrlFilename > url mode not set');

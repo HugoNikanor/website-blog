@@ -12,7 +12,8 @@
 		//ini_set('display_errors', '1');
 		ini_set('display_startup_errors', 1);
 		ini_set('display_errors', 1);
-		error_reporting(-1);
+		error_reporting(E_ALL);
+		error_reporting(~E_STRICT);
 		
 		//debug items
 		//echo exec('whoami');
@@ -175,8 +176,15 @@
 		$filename === 'qna.md'
 	)) : ?>
 	<div id="comment">
-		<script type="text/javascript" src="/hashover.php"></script>
-		<noscript>Enable javascript</noscript>
+		<?php 
+			$mode = 'php'; 
+			// Raw version, followed by fancy alternative
+			// Be avare that changing this also requires
+			// a name change on the folder the comments
+			// are stored in.
+			$canon_url = 'http://' . $_SERVER['HTTP_HOST'] . getUrlFilename( 'default', $filename );
+			include('hashover.php'); 
+		?>
 	</div>
 	<?php endif; ?>
 	<div id="footnote">
