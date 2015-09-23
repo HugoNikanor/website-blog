@@ -27,6 +27,7 @@
 		require('month-to-string.php');
 
 		echo('<link rel="stylesheet" href="' . getString('rootDir') . '/blog.css">');
+		echo('<link rel="stylesheet" href="' . getString('rootDir') . '/hashover/comments.css">');
 	?>
 	<title>
 		<?php
