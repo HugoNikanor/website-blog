@@ -26,7 +26,7 @@
 	$root_dir	= '/hashover/';					// HTTP root directory for comments
 	$language	= 'en';						// Language used for forms, buttons, links, and tooltips
 	$name		= 'The Hacker 4chan';				// Nickname when one isn't given
-	$template	= 'default';					// Comment layout template
+	$template	= 'templateHugo';					// Comment layout template
 	$page_title	= 'no';					// Whether page title is shown or not
 	$short_dates	= 'no';					// Whether comment dates are shortened
 	$icons		= 'no';					// Whether comments have avatar icons (Gravatar)
