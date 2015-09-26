@@ -176,9 +176,9 @@
 		$filename === 'qna.md'
 	)) : ?>
 	<div id="comment">
-			<?php 
-				$canon_url = 'http://' . $_SERVER['HTTP_HOST'] . getUrlFilename( 'default', $filename );
-?>
+		<?php 
+			$canon_url = 'http://' . $_SERVER['HTTP_HOST'] . getUrlFilename( 'default', $filename );
+		?>
 		<div id="disqus_thread"></div>
 		<script type="text/javascript">
 				/* * * CONFIGURATION VARIABLES * * */
