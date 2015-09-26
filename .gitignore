@@ -4,6 +4,7 @@
 entries/*
 !entries/20001230Dummy.md
 media/
+footnote/
 
 password.php
 upload.php

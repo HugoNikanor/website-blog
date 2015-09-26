@@ -27,7 +27,6 @@
 		require('month-to-string.php');
 
 		echo('<link rel="stylesheet" href="' . getString('rootDir') . '/blog.css">');
-		echo('<link rel="stylesheet" href="' . getString('rootDir') . '/hashover/comments.css">');
 	?>
 	<title>
 		<?php
@@ -177,15 +176,24 @@
 		$filename === 'qna.md'
 	)) : ?>
 	<div id="comment">
-		<?php 
-			$mode = 'php'; 
-			// Raw version, followed by fancy alternative
-			// Be avare that changing this also requires
-			// a name change on the folder the comments
-			// are stored in.
-			$canon_url = 'http://' . $_SERVER['HTTP_HOST'] . getUrlFilename( 'default', $filename );
-			include('hashover.php'); 
-		?>
+			<?php 
+				$canon_url = 'http://' . $_SERVER['HTTP_HOST'] . getUrlFilename( 'default', $filename );
+?>
+		<div id="disqus_thread"></div>
+		<script type="text/javascript">
+				/* * * CONFIGURATION VARIABLES * * */
+				var disqus_shortname = 'hugonikanor';
+				var disqus_identifier = '<?php echo($canon_url); ?>';
+				/* * * DON'T EDIT BELOW THIS LINE * * */
+				(function() {
+						var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+						dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+						(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+				})();
+		</script>
+		<noscript>
+			Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a>
+		</noscript>
 	</div>
 	<?php endif; ?>
 	<div id="footnote">
