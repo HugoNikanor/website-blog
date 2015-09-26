@@ -13,13 +13,13 @@ Make sure that you have php installed on the server.
 Copy all the files into a directory accessible by the server.
 
 ###Creating directories
-In that directory, create an ``./entries`` directory and put at least one file
-in it. Then create:
+In that directory, create an ``entries/`` directory and put at least one file
+in it. Then create a ``footnote/`` directory and put the following files in it:
 ``
-./footnote/about.md
-./footnote/contact.md
-./footnote/legal.md
-./footnote/qna.md
+footnote/about.md
+footnote/contact.md
+footnote/legal.md
+footnote/qna.md
 `` 
 
 ###Choosing settings
@@ -36,7 +36,7 @@ you change what discussion this points to.
 The engine is built on Parsedown, which allows the entries to be written in 
 markdown.
 
-All blog entries that should be published should be put in the ``/entries`` folder.  
+All blog entries that should be published should be put in the ``entries/`` folder.  
 Preferably, they should be named according to the format: ``YYYYMMDDFile_name.md``
 due to how the engine checks for dates, and how the list functionality renders
 the entries.
