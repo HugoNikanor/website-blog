@@ -26,7 +26,7 @@
 		require('nav-bar.php');
 		require('month-to-string.php');
 
-		echo('<link rel="stylesheet" href="' . getString('rootDir') . '/blog.css">');
+		<link rel="stylesheet" href="./blog.css">
 	?>
 	<title>
 		<?php
