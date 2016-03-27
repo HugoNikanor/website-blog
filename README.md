@@ -1,7 +1,7 @@
 #My Blog Engine! 
 
 ##NOTE
-This version is no longer maintained. For the up to date version see <//github.com/hugonikanor/website-blog-2>
+This version is no longer maintained. For the up to date version see <https://github.com/hugonikanor/website-blog-2>
 
 ---
 
