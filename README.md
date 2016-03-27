@@ -1,5 +1,10 @@
 #My Blog Engine! 
 
+##NOTE
+This version is no longer maintained. For the up to date version see <//github.com/hugonikanor/website-blog-2>
+
+---
+
 This is my small blog engine created for my personal use, but is free to use for
 anyone else, if you feel inclined to do so. ( But I wouldn't recommend it )
 
